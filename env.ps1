@@ -1,5 +1,5 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$abs = Join-Path $pwd output\xz\bin_x86-64
+$xz_path = Join-Path $pwd output\xz\bin_x86-64
 
-$env:PATH += ";$abs"
+$env:PATH += ";$xz_path"
