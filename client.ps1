@@ -1,3 +1,5 @@
+Set-PSDebug -Step -Trace 1
+
 Import-Module 7Zip4Powershell
 Import-Module Pester -MinimumVersion 5.0.2
 
