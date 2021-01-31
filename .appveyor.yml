@@ -1,0 +1,25 @@
+version: 1.0.{build}
+image:
+- Visual Studio 2019 Preview
+clone_folder: c:\appveyor-get-file-list
+init:
+- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+install:
+- ps: Set-Location $env:APPVEYOR_BUILD_FOLDER
+- ps: .\preamble.ps1
+- ps: .\nuget.ps1
+- ps: .\psgallery.ps1
+- ps: .\pester.ps1
+- ps: .\_7Zip4Powershell.ps1
+build_script:
+- ps: Get-ChildItem C:\ -Recurse -Force -ErrorAction SilentlyContinue >all.txt
+- ps: . .\env.ps1
+- ps: .\client.ps1
+test_script:
+- ps: . .\test.ps1
+after_test:
+- ps: $fname = 'all.xz'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
+- ps: $fname = 'all.7z'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
+on_failure:
+- ps: $fname = 'all.xz'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
+- ps: $fname = 'all.7z'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
