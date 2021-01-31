@@ -8,9 +8,9 @@ image:
 clone_folder: c:\appveyor-get-file-list
 init:
 # - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+install:
 - ps: Set-Location $env:APPVEYOR_BUILD_FOLDER
 - ps: . .\env.ps1
-install:
 - ps: .\setup.ps1
 - ps: .\nuget.ps1
 - ps: .\psgallery.ps1
