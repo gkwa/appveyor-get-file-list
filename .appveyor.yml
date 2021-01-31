@@ -1,6 +1,10 @@
 version: 1.0.{build}
 image:
 - Visual Studio 2019 Preview
+- Visual Studio 2013
+- Visual Studio 2019
+- Visual Studio 2017
+- Visual Studio 2015
 clone_folder: c:\appveyor-get-file-list
 init:
 # - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
