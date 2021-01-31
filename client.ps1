@@ -1,6 +1,6 @@
 Import-Module 7Zip4Powershell
 
-# Set-PSDebug -Step -Trace 1
+Set-PSDebug -Trace 1
 
 $zip1 = Join-Path $pwd all.7z
 $zip2 = Join-Path $pwd all.xz
