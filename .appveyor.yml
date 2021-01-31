@@ -17,7 +17,6 @@ install:
 - ps: .\pester.ps1
 - ps: .\_7Zip4Powershell.ps1
 build_script:
-- ps: . .\env.ps1
 - ps: .\client.ps1
 test_script:
 - ps: . .\test.ps1
