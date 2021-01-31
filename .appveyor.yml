@@ -12,7 +12,6 @@ install:
 - ps: .\pester.ps1
 - ps: .\_7Zip4Powershell.ps1
 build_script:
-- ps: Get-ChildItem C:\ -Recurse -Force -ErrorAction SilentlyContinue >all.txt
 - ps: . .\env.ps1
 - ps: .\client.ps1
 test_script:
