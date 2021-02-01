@@ -21,8 +21,10 @@ build_script:
 test_script:
 - ps: .\test.ps1
 after_test:
-- ps: $fname = 'all.xz'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
-- ps: $fname = 'all.7z'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
+#- ps: $fname = 'all.xz'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
+#- ps: $fname = 'all.7z'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
+- ps: $fname = 'all.txt'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
 on_failure:
-- ps: $fname = 'all.xz'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
-- ps: $fname = 'all.7z'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
+#- ps: $fname = 'all.xz'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
+#- ps: $fname = 'all.7z'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
+- ps: $fname = 'all.txt'; Get-ChildItem $fname | % { Push-AppveyorArtifact $_.FullName -FileName $fname }
